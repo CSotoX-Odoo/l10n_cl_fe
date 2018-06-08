@@ -522,7 +522,8 @@ class UploadXMLWizard(models.TransientModel):
                     ('new_product', '=', NmbItem + '' + code),
                     ('product_description', '=', line.find("DescItem").text if line.find("DescItem") is not None else NmbItem),
                     ('document_id', '=', document_id.id)
-                ]
+                ],
+                limit=1,
             )
             if line_id:
                 if line_id.product_id:
