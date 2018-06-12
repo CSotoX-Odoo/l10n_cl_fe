@@ -276,6 +276,12 @@ class Libro(models.Model):
     codigo_rectificacion = fields.Char(
             string="Código de Rectificación",
         )
+    x_send_book_dte = fields.Boolean(
+            string="¿Enviar los libros de Compra/Venta al SII?",
+            help="Para saber si se envian los Libros Fiscales al SII o se mantienen para control interno de la empresa.",
+            store=True,
+            default=False,
+        )
 
     @api.onchange('periodo_tributario', 'tipo_operacion', 'company_id')
     def set_movimientos(self):
